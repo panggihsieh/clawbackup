@@ -1,0 +1,197 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://platform.minimax.io/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Web Search & Image Understanding MCP
+
+> **Coding Plan MCP** provides two exclusive tools: **web_search** and **understand_image**, helping developers quickly access information and understand image content during coding.
+
+## Tool Description
+
+<AccordionGroup>
+  <Accordion title="web_search" icon="search">
+    Performs web searches based on search queries, returning search results and related suggestions.
+
+    | Parameter | Type   | Required | Description  |
+    | :-------- | :----- | :------: | :----------- |
+    | query     | string |     ✓    | Search query |
+  </Accordion>
+
+  <Accordion title="understand_image" icon="eye">
+    Performs image understanding and analysis, supporting multiple image input methods.
+
+    | Parameter  | Type   | Required | Description                                              |
+    | :--------- | :----- | :------: | :------------------------------------------------------- |
+    | prompt     | string |     ✓    | Question or analysis request for the image               |
+    | image\_url | string |     ✓    | Image source, supports HTTP/HTTPS URL or local file path |
+
+    **Supported formats**: JPEG, PNG, GIF, WebP (max 20MB)
+  </Accordion>
+</AccordionGroup>
+
+## Prerequisites
+
+<Steps>
+  <Step title="Get API Key">
+    Visit [Coding Plan subscription page](https://platform.minimax.io/subscribe/coding-plan), subscribe to a plan and get your exclusive API Key.
+  </Step>
+
+  <Step title="Install uvx">
+    <Tabs>
+      <Tab title="macOS / Linux">
+        ```bash  theme={null}
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        ```
+      </Tab>
+
+      <Tab title="Windows">
+        ```powershell  theme={null}
+        powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+        ```
+      </Tab>
+    </Tabs>
+
+    <Note>
+      For other installation methods, refer to the [uv repository](https://github.com/astral-sh/uv).
+    </Note>
+  </Step>
+
+  <Step title="Verify Installation">
+    <Tabs>
+      <Tab title="macOS / Linux">
+        ```bash  theme={null}
+        which uvx
+        ```
+      </Tab>
+
+      <Tab title="Windows">
+        ```powershell  theme={null}
+        (Get-Command uvx).source
+        ```
+      </Tab>
+    </Tabs>
+
+    <Note>
+      If installed correctly, a path will be shown (e.g., `/usr/local/bin/uvx`). If you get `spawn uvx ENOENT` error, you need to configure the absolute path.
+    </Note>
+  </Step>
+</Steps>
+
+## Use in Claude Code
+
+<Steps>
+  <Step title="Download Claude Code">
+    Download and install Claude Code from [Claude Code official website](https://www.claude.com/product/claude-code)
+  </Step>
+
+  <Step title="Configure MCP">
+    <Tabs>
+      <Tab title="Quick Install">
+        Run the following command in terminal, replace `api_key` with your API Key:
+
+        ```bash  theme={null}
+        claude mcp add -s user MiniMax --env MINIMAX_API_KEY=api_key --env MINIMAX_API_HOST=https://api.minimax.io -- uvx minimax-coding-plan-mcp -y
+        ```
+      </Tab>
+
+      <Tab title="Manual Configuration">
+        Edit the config file `~/.claude.json`, add the following MCP configuration:
+
+        ```json  theme={null}
+        {
+          "mcpServers": {
+            "MiniMax": {
+              "command": "uvx",
+              "args": ["minimax-coding-plan-mcp", "-y"],
+              "env": {
+                "MINIMAX_API_KEY": "MINIMAX_API_KEY",
+                "MINIMAX_API_HOST": "https://api.minimax.io"
+              }
+            }
+          }
+        }
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Verify Configuration">
+    After entering Claude Code, type `/mcp`. If you can see `web_search` and `understand_image`, the configuration is successful.
+
+    <img src="https://filecdn.minimax.chat/public/59a2ac4d-fe8a-42d9-8898-e81aea641622.png" width="80%" />
+  </Step>
+</Steps>
+
+<Note>
+  If you use MCP in an IDE (like TRAE), you also need to configure MCP in the corresponding IDE settings
+</Note>
+
+## Use in Cursor
+
+<Steps>
+  <Step title="Download Cursor">
+    Download and install Cursor from [Cursor official website](https://cursor.com/)
+  </Step>
+
+  <Step title="Open MCP Configuration">
+    Go to `Cursor -> Preferences -> Cursor Settings -> Tools & Integrations -> MCP -> Add Custom MCP`
+
+    ![Cursor MCP Configuration](https://filecdn.minimax.chat/public/61982fde-6575-4230-94eb-798f35a60450.png)
+  </Step>
+
+  <Step title="Add Configuration">
+    Add the following configuration to `mcp.json` file:
+
+    ```json  theme={null}
+    {
+      "mcpServers": {
+        "MiniMax": {
+          "command": "uvx",
+          "args": ["minimax-coding-plan-mcp"],
+          "env": {
+            "MINIMAX_API_KEY": "Enter your API key",
+            "MINIMAX_MCP_BASE_PATH": "Local output directory path, ensure the path exists and is writable",
+            "MINIMAX_API_HOST": "https://api.minimax.io",
+            "MINIMAX_API_RESOURCE_MODE": "Optional. Resource delivery method: url or local, default url"
+          }
+        }
+      }
+    }
+    ```
+  </Step>
+</Steps>
+
+## Use in OpenCode
+
+<Steps>
+  <Step title="Download OpenCode">
+    Download and install OpenCode from [OpenCode official website](https://opencode.ai/)
+  </Step>
+
+  <Step title="Configure MCP">
+    Edit the config file `~/.config/opencode/opencode.json`, add the following MCP configuration:
+
+    ```json  theme={null}
+    {
+      "$schema": "https://opencode.ai/config.json",
+      "mcp": {
+        "MiniMax": {
+          "type": "local",
+          "command": ["uvx", "minimax-coding-plan-mcp", "-y"],
+          "environment": {
+            "MINIMAX_API_KEY": "MINIMAX_API_KEY",
+            "MINIMAX_API_HOST": "https://api.minimax.io"
+          },
+          "enabled": true
+        }
+      }
+    }
+    ```
+  </Step>
+
+  <Step title="Verify Configuration">
+    After entering OpenCode, type `/mcp`. If you can see `MiniMax connected`, the configuration is successful.
+
+    <img src="https://filecdn.minimax.chat/public/1a24c300-4cff-40ee-a428-869467074c1d.png" width="80%" />
+  </Step>
+</Steps>

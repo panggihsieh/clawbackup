@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "bee1b76c-458f-4d48-95cd-4819e40a2dad",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473975908447813715",
+      "name": "Google Education & Classroom 每日新聞",
+      "enabled": true,
+      "createdAtMs": 1771498536916,
+      "updatedAtMs": 1771499018426,
+      "schedule": {
+        "expr": "0 12,18 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "搜尋 Google Education 和 Google Classroom 的最新新聞訊息 (2025-2026)，用 minimax MCP (mcporter call minimax.web_search)，整理成簡短的每日新聞摘要，重點新聞必須附上超連結 (Markdown 格式：[文字](網址))，格式範例：\n\n📰 **標題**\n• [文章標題](網址)\n• [YouTube 影片](網址)\n\n整理完成後匯報",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce",
+        "to": "1473975908447813715"
+      },
+      "state": {
+        "nextRunAtMs": 1771560000000,
+        "lastRunAtMs": 1771498573587,
+        "lastStatus": "ok",
+        "lastDurationMs": 55106,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "28f0f75a-43fc-4cd8-81de-ad4d47bd8b6f",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473943769316331658",
+      "name": "Memory Checkpoint",
+      "enabled": true,
+      "createdAtMs": 1771501559476,
+      "updatedAtMs": 1771501559476,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 21600000,
+        "anchorMs": 1771501559476
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "執行檢查點腳本：bash ~/.openclaw/workspace/para-system/checkpoint-memory-llm.sh"
+      },
+      "state": {
+        "nextRunAtMs": 1771523159476
+      }
+    },
+    {
+      "id": "f03c4131-fff4-4325-9504-54bd4856ced7",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473943769316331658",
+      "name": "夜間深度分析",
+      "enabled": true,
+      "createdAtMs": 1771501573424,
+      "updatedAtMs": 1771501573424,
+      "schedule": {
+        "expr": "30 2 * * 0",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "執行深度分析腳本：bash ~/.openclaw/workspace/para-system/nightly-deep-analysis.sh，然後匯報結果"
+      },
+      "delivery": {
+        "mode": "announce",
+        "to": "1473943769316331658",
+        "channel": "discord"
+      },
+      "state": {
+        "nextRunAtMs": 1771698600000
+      }
+    },
+    {
+      "id": "fcc1e289-69f1-48a8-84d4-24e39a45e42d",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473975908447813715",
+      "name": "OpenClaw 每日備份",
+      "enabled": true,
+      "createdAtMs": 1771502206389,
+      "updatedAtMs": 1771516856512,
+      "schedule": {
+        "expr": "0 0 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "執行備份腳本：/Users/hsieh/.openclaw/workspace/scripts/backup-openclaw.sh\n\n備份完成後匯報結果",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce",
+        "to": "1473975908447813715"
+      },
+      "state": {
+        "nextRunAtMs": 1771603200000,
+        "lastRunAtMs": 1771516800041,
+        "lastStatus": "error",
+        "lastDurationMs": 56471,
+        "consecutiveErrors": 1,
+        "lastError": "cron announce delivery failed"
+      }
+    }
+  ]
+}
