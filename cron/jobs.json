@@ -8,7 +8,7 @@
       "name": "Google Education & Classroom 每日新聞",
       "enabled": true,
       "createdAtMs": 1771498536916,
-      "updatedAtMs": 1772100055630,
+      "updatedAtMs": 1772272889906,
       "schedule": {
         "expr": "0 6,12,18 * * *",
         "kind": "cron",
@@ -27,11 +27,11 @@
         "to": "1473975908447813715"
       },
       "state": {
-        "lastRunAtMs": 1772100000006,
+        "lastRunAtMs": 1772272800008,
         "lastStatus": "ok",
-        "lastDurationMs": 55624,
+        "lastDurationMs": 89898,
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1772143200000
+        "nextRunAtMs": 1772316000000
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "Memory Checkpoint",
       "enabled": true,
       "createdAtMs": 1771501559476,
-      "updatedAtMs": 1772106396651,
+      "updatedAtMs": 1772279173720,
       "schedule": {
         "kind": "every",
         "everyMs": 21600000,
@@ -54,10 +54,10 @@
         "text": "執行檢查點腳本：bash ~/.openclaw/workspace/para-system/checkpoint-memory-llm.sh"
       },
       "state": {
-        "nextRunAtMs": 1772127959476,
-        "lastRunAtMs": 1772106359484,
+        "nextRunAtMs": 1772300759476,
+        "lastRunAtMs": 1772279159483,
         "lastStatus": "ok",
-        "lastDurationMs": 37167,
+        "lastDurationMs": 14237,
         "consecutiveErrors": 0
       }
     },
@@ -100,7 +100,7 @@
       "name": "OpenClaw 每日備份",
       "enabled": true,
       "createdAtMs": 1771502206389,
-      "updatedAtMs": 1772121652300,
+      "updatedAtMs": 1772294445022,
       "schedule": {
         "expr": "0 0 * * *",
         "kind": "cron",
@@ -119,11 +119,11 @@
         "to": "1473975908447813715"
       },
       "state": {
-        "nextRunAtMs": 1772208000000,
-        "lastRunAtMs": 1772121600032,
+        "nextRunAtMs": 1772380800000,
+        "lastRunAtMs": 1772294400088,
         "lastStatus": "error",
-        "lastDurationMs": 52268,
-        "consecutiveErrors": 2,
+        "lastDurationMs": 44934,
+        "consecutiveErrors": 4,
         "lastError": "cron announce delivery failed"
       }
     },
@@ -134,7 +134,7 @@
       "name": "Google Antigravity MCP news",
       "enabled": true,
       "createdAtMs": 1771728084602,
-      "updatedAtMs": 1772078617024,
+      "updatedAtMs": 1772251393422,
       "schedule": {
         "expr": "0 12 * * *",
         "kind": "cron",
@@ -154,11 +154,11 @@
         "to": "1474045619432587264"
       },
       "state": {
-        "nextRunAtMs": 1772164800000,
-        "lastRunAtMs": 1772078502428,
+        "nextRunAtMs": 1772337600000,
+        "lastRunAtMs": 1772251278236,
         "lastStatus": "error",
-        "lastDurationMs": 114596,
-        "consecutiveErrors": 4,
+        "lastDurationMs": 115186,
+        "consecutiveErrors": 6,
         "lastError": "cron announce delivery failed"
       }
     },
@@ -262,7 +262,7 @@
       "name": "AI 每日科技新聞",
       "enabled": true,
       "createdAtMs": 1771757379696,
-      "updatedAtMs": 1772078707217,
+      "updatedAtMs": 1772251516172,
       "schedule": {
         "expr": "0 12 * * *",
         "kind": "cron",
@@ -282,12 +282,144 @@
         "to": "1474220939267805256"
       },
       "state": {
-        "nextRunAtMs": 1772164800000,
-        "lastRunAtMs": 1772078617024,
+        "nextRunAtMs": 1772337600000,
+        "lastRunAtMs": 1772251393422,
         "lastStatus": "error",
-        "lastDurationMs": 90193,
-        "consecutiveErrors": 3,
+        "lastDurationMs": 122750,
+        "consecutiveErrors": 5,
         "lastError": "cron announce delivery failed"
+      }
+    },
+    {
+      "id": "ca6bc835-0852-4ab2-80e3-44fbcb24e922",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-daily-tips",
+      "enabled": true,
+      "createdAtMs": 1772179993042,
+      "updatedAtMs": 1772240478541,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/c/any-news/11 - News 分類\n2. https://community.anytype.io/c/any-help/8 - Help 分類\n3. YouTube - 搜尋 Anytype 最新教學/更新影片\n\n找出：\n1. 新的功能介紹或版本更新（從 News）\n2. 有用的使用技巧（從 Help）\n3. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的摘要分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772326800000,
+        "lastRunAtMs": 1772240400007,
+        "lastStatus": "error",
+        "lastDurationMs": 78534,
+        "consecutiveErrors": 3,
+        "lastError": "cron delivery target is missing"
+      }
+    },
+    {
+      "id": "d833cf56-7178-4272-91ef-7e600845d8eb",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-morning-6am",
+      "enabled": true,
+      "createdAtMs": 1772180575494,
+      "updatedAtMs": 1772229896947,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/c/any-news/11 - News 分類\n2. YouTube 搜尋 \"Anytype\" 或 \"Anytype What's New\" - 最新影片\n\n找出：\n1. 新的版本更新或功能公告（從 News）\n2. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的早安摘要分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772316000000,
+        "lastRunAtMs": 1772229791898,
+        "lastStatus": "error",
+        "lastDurationMs": 105049,
+        "consecutiveErrors": 8,
+        "lastError": "cron delivery target is missing"
+      }
+    },
+    {
+      "id": "2a156e1f-abc1-424c-8afb-1e6ada056700",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-noon-12pm",
+      "enabled": true,
+      "createdAtMs": 1772180581325,
+      "updatedAtMs": 1772251595835,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/c/any-help/8 - Help 分類\n2. https://community.anytype.io/c/feature-requests/6 - Feature Requests\n3. YouTube - 搜尋 Anytype 教學/技巧影片\n\n找出：\n1. 有趣的使用技巧或問答（從 Help）\n2. 熱門的功能請求（從 Feature Requests）\n3. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的午間技巧分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772337600000,
+        "lastRunAtMs": 1772251516172,
+        "lastStatus": "error",
+        "lastDurationMs": 79663,
+        "lastError": "cron delivery target is missing",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "00d75b83-7129-475b-bd41-77af98100454",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-evening-6pm",
+      "enabled": true,
+      "createdAtMs": 1772180586277,
+      "updatedAtMs": 1772272974770,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/ - 熱門討論\n2. https://blog.anytype.io/ - 部落格文章\n3. YouTube 搜尋 \"Anytype\" - 最新上傳的影片\n\n找出：\n1. 當天的熱門討論話題\n2. 部落格文章或深度功能介紹\n3. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的晚間摘要分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772359200000,
+        "lastRunAtMs": 1772272889906,
+        "lastStatus": "error",
+        "lastDurationMs": 84864,
+        "consecutiveErrors": 2,
+        "lastError": "cron delivery target is missing"
       }
     }
   ]
