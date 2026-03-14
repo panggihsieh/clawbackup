@@ -1,0 +1,17 @@
+{
+  "id": "95a6af87-0319-46e3-9cd8-ae158d67a4d6",
+  "enqueuedAt": 1772624523420,
+  "channel": "discord",
+  "to": "channel:574933202628509698",
+  "payloads": [
+    {
+      "text": "I can't seem to send via the message tool (Discord group DM lacks guildId), but we're already in this session! So...\n\nHey Peter! 兩個提醒：\n\n1. **macOS 自動化權限**：需要授權 Screen Recording 和 Accessibility 權限，這樣我才能幫你操作 Anytype。\n   路徑：系統偏好設定 → 隱私權與安全性 → 螢幕錄製 / 輔助使用\n\n2. **課程筆記範本**：你之前問過的科目筆記範本（科目別、科目、章節、每章重點、練習、典範題、小提示、進度）。如果權限已授權，我可以幫你在 Anytype 裡建立～",
+      "mediaUrls": []
+    }
+  ],
+  "threadId": null,
+  "replyToId": null,
+  "bestEffort": false,
+  "retryCount": 2,
+  "lastError": "fetch failed"
+}
