@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "anytype": {
+      "command": "anytype-mcp",
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer 9fixrXeSSvLZ4juqBlSIqztRSD4zbbmcevam6A6OzpU=\", \"Anytype-Version\": \"2025-11-08\"}"
+      }
+    }
+  },
+  "imports": []
+}

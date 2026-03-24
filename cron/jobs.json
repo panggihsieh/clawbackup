@@ -1,0 +1,459 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "bee1b76c-458f-4d48-95cd-4819e40a2dad",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473975908447813715",
+      "name": "Google Education & Classroom 每日新聞",
+      "enabled": true,
+      "createdAtMs": 1771498536916,
+      "updatedAtMs": 1774325149871,
+      "schedule": {
+        "expr": "0 6,12 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "搜尋 Google Education 和 Google Classroom 的最新新聞訊息，用 minimax MCP，只整理與 Google Education/Classroom 相關的新聞。\n\n每則新聞格式要求：\n- 標題（繁體中文）\n- 100字左右的繁體中文簡介\n- 超連結（🔗 網址）\n\n發布格式：\n**標題**\n簡介\n🔗 網址\n\n整理成每日新聞摘要後，直接發布到此 Discord 頻道。",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "1473975908447813715"
+      },
+      "state": {
+        "lastRunAtMs": 1774324800007,
+        "lastStatus": "error",
+        "lastDurationMs": 349864,
+        "consecutiveErrors": 2,
+        "nextRunAtMs": 1774389600000,
+        "lastError": "cron announce delivery failed"
+      }
+    },
+    {
+      "id": "28f0f75a-43fc-4cd8-81de-ad4d47bd8b6f",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473943769316331658",
+      "name": "Memory Checkpoint",
+      "enabled": true,
+      "createdAtMs": 1771501559476,
+      "updatedAtMs": 1774352773589,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 21600000,
+        "anchorMs": 1771501559476
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "執行檢查點腳本：bash ~/.openclaw/workspace/para-system/checkpoint-memory-llm.sh"
+      },
+      "state": {
+        "nextRunAtMs": 1774374359476,
+        "lastRunAtMs": 1774352759485,
+        "lastStatus": "ok",
+        "lastDurationMs": 14104,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "f03c4131-fff4-4325-9504-54bd4856ced7",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473943769316331658",
+      "name": "夜間深度分析",
+      "enabled": true,
+      "createdAtMs": 1771501573424,
+      "updatedAtMs": 1774117837313,
+      "schedule": {
+        "expr": "30 2 * * 0",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "執行深度分析腳本：bash ~/.openclaw/workspace/para-system/nightly-deep-analysis.sh，然後匯報結果"
+      },
+      "delivery": {
+        "mode": "announce",
+        "to": "1473943769316331658",
+        "channel": "discord"
+      },
+      "state": {
+        "nextRunAtMs": 1774722600000,
+        "lastRunAtMs": 1774117800070,
+        "lastStatus": "ok",
+        "lastDurationMs": 37243,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "fcc1e289-69f1-48a8-84d4-24e39a45e42d",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1473975908447813715",
+      "name": "OpenClaw 每日備份",
+      "enabled": true,
+      "createdAtMs": 1771502206389,
+      "updatedAtMs": 1774281604217,
+      "schedule": {
+        "expr": "0 0 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "執行備份腳本：/Users/hsieh/.openclaw/workspace/scripts/backup-openclaw.sh\n\n備份完成後匯報結果",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce",
+        "to": "1473975908447813715"
+      },
+      "state": {
+        "nextRunAtMs": 1774368000000,
+        "lastRunAtMs": 1774281600036,
+        "lastStatus": "ok",
+        "lastDurationMs": 4181,
+        "consecutiveErrors": 0,
+        "runningAtMs": 1774368000025
+      }
+    },
+    {
+      "id": "8c4a1875-edb8-4813-a423-efee8483191e",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1474045619432587264",
+      "name": "Google Antigravity MCP news",
+      "enabled": true,
+      "createdAtMs": 1771728084602,
+      "updatedAtMs": 1774325236508,
+      "schedule": {
+        "expr": "0 6,12 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "搜尋以下來源，關於 Google Antigravity 和 MCP extension 的最新發布訊息（過去24小時內）：\n\n1. Google Developers Blog: https://developers.googleblog.com/search?q=antigravity\n2. google-gemini/gemini-cli releases: https://github.com/google-gemini/gemini-cli/releases\n3. Google AI Blog: https://blog.google/technology/ai/\n4. Google Classroom MCP: https://github.com/search?q=google+classroom+mcp&type=repositories&s=updated\n5. Gmail MCP: https://github.com/search?q=gmail+mcp+antigravity&type=repositories&s=updated\n6. Google Calendar MCP: https://github.com/search?q=google+calendar+mcp&type=repositories&s=updated\n\n格式要求：\n- 使用繁體中文\n- 每個分類表格後需附上約200字的繁體中文說明\n- 包含連結與發布時間\n- 如果有 YouTube 影片一併附上\n\n**不要附上 HTML 格式**\n\n如果找到新文章，請提供：文章標題、連結、發布時間、YouTube影片（如有）、簡短中文摘要。\n如果沒有新訊息，回复「今日無新訊息」。",
+        "model": "minimax-portal/MiniMax-M2.5",
+        "thinking": "high"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce",
+        "to": "1474045619432587264"
+      },
+      "state": {
+        "nextRunAtMs": 1774389600000,
+        "lastRunAtMs": 1774325149871,
+        "lastStatus": "error",
+        "lastDurationMs": 86637,
+        "consecutiveErrors": 13,
+        "lastError": "cron announce delivery failed"
+      }
+    },
+    {
+      "id": "065c2b0a-7ba1-4d03-aae4-76226a425d15",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1475078700524376206",
+      "name": "天氣-嘉義&梅山-0230-PM6",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1771756708675,
+      "updatedAtMs": 1771841334852,
+      "schedule": {
+        "at": "2026-02-23T10:00:00.000Z",
+        "kind": "at"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "回報嘉義市與梅山鄉的天氣，使用 wttr.in 查詢並用中文回報。"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1771840887994,
+        "lastStatus": "error",
+        "lastDurationMs": 446858,
+        "lastError": "cron delivery target is missing",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "2921382b-dfbd-4f48-8489-af6336ab58b5",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1475078700524376206",
+      "name": "天氣-嘉義&梅山-0231-AM6",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1771756712179,
+      "updatedAtMs": 1771884349300,
+      "schedule": {
+        "at": "2026-02-23T22:00:00.000Z",
+        "kind": "at"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "回報嘉義市與梅山鄉的天氣，使用 wttr.in 查詢並用中文回報。"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1771884232574,
+        "lastStatus": "error",
+        "lastDurationMs": 116726,
+        "lastError": "cron delivery target is missing",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "bf994968-0c11-4957-ac1f-15b843232ed6",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1475078700524376206",
+      "name": "天氣-嘉義&梅山-0231-PM6",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1771756717357,
+      "updatedAtMs": 1771927519689,
+      "schedule": {
+        "at": "2026-02-24T10:00:00.000Z",
+        "kind": "at"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "回報嘉義市與梅山鄉的天氣，使用 wttr.in 查詢並用中文回報。"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1771927263426,
+        "lastStatus": "error",
+        "lastDurationMs": 256263,
+        "lastError": "cron delivery target is missing",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "bee27c99-63ce-4412-b2ac-5019ea4fc658",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1475078700524376206",
+      "name": "AI 每日科技新聞",
+      "enabled": true,
+      "createdAtMs": 1771757379696,
+      "updatedAtMs": 1774325284688,
+      "schedule": {
+        "expr": "0 6,12 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "搜尋最新Google antigravity和agent skill相關新聞（過去24小時），使用繁體中文摘要，重點包括：\n1. Google在AI agent領域的最新進展\n2. Antigravity相關技術或產品發布\n3. 任何重要的Google AI新聞\n\n**重要：請使用Discord原生格式，不要使用HTML**。\n\n摘要內容請控制在**200字以內**。\n\n格式如下：\n\n**AI每日科技新聞**\n2026年2月22日\n─────────────────\n**新聞標題**\n發布時間：2月20日\n摘要內容（200字以內）...\n🔗 来源名稱: 連結\n\n─────────────────\n\n每則新聞都用這種格式。如果有YouTube影片，請用🎬標示並附上連結。",
+        "model": "minimax-portal/MiniMax-M2.5",
+        "thinking": "high"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "1474220939267805256"
+      },
+      "state": {
+        "nextRunAtMs": 1774389600000,
+        "lastRunAtMs": 1774325236508,
+        "lastStatus": "error",
+        "lastDurationMs": 48180,
+        "consecutiveErrors": 11,
+        "lastError": "cron announce delivery failed"
+      }
+    },
+    {
+      "id": "ca6bc835-0852-4ab2-80e3-44fbcb24e922",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-daily-tips",
+      "enabled": true,
+      "createdAtMs": 1772179993042,
+      "updatedAtMs": 1774325352598,
+      "schedule": {
+        "expr": "0 6,12 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/c/any-news/11 - News 分類\n2. https://community.anytype.io/c/any-help/8 - Help 分類\n3. YouTube - 搜尋 Anytype 最新教學/更新影片\n\n找出：\n1. 新的功能介紹或版本更新（從 News）\n2. 有用的使用技巧（從 Help）\n3. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的摘要分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "1476854371873587353"
+      },
+      "state": {
+        "nextRunAtMs": 1774389600000,
+        "lastRunAtMs": 1774325284688,
+        "lastStatus": "ok",
+        "lastDurationMs": 67910,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "d833cf56-7178-4272-91ef-7e600845d8eb",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-morning-6am",
+      "enabled": false,
+      "createdAtMs": 1772180575494,
+      "updatedAtMs": 1772578469691,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/c/any-news/11 - News 分類\n2. YouTube 搜尋 \"Anytype\" 或 \"Anytype What's New\" - 最新影片\n\n找出：\n1. 新的版本更新或功能公告（從 News）\n2. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的早安摘要分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772575357292,
+        "lastStatus": "error",
+        "lastDurationMs": 47336,
+        "consecutiveErrors": 12,
+        "lastError": "cron delivery target is missing"
+      }
+    },
+    {
+      "id": "2a156e1f-abc1-424c-8afb-1e6ada056700",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-noon-12pm",
+      "enabled": true,
+      "createdAtMs": 1772180581325,
+      "updatedAtMs": 1774325478694,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/c/any-help/8 - Help 分類\n2. https://community.anytype.io/c/feature-requests/6 - Feature Requests\n3. YouTube - 搜尋 Anytype 教學/技巧影片\n\n找出：\n1. 有趣的使用技巧或問答（從 Help）\n2. 熱門的功能請求（從 Feature Requests）\n3. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的午間技巧分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "1476854371873587353"
+      },
+      "state": {
+        "nextRunAtMs": 1774411200000,
+        "lastRunAtMs": 1774325352598,
+        "lastStatus": "ok",
+        "lastDurationMs": 126096,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "00d75b83-7129-475b-bd41-77af98100454",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "anytype-evening-6pm",
+      "enabled": false,
+      "createdAtMs": 1772180586277,
+      "updatedAtMs": 1772578466957,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "檢查以下來源：\n1. https://community.anytype.io/ - 熱門討論\n2. https://blog.anytype.io/ - 部落格文章\n3. YouTube 搜尋 \"Anytype\" - 最新上傳的影片\n\n找出：\n1. 當天的熱門討論話題\n2. 部落格文章或深度功能介紹\n3. YouTube 新影片（用中文簡介，100-200字）\n\n用中文整理成簡短的晚間摘要分享給用戶。\n\nYouTube 影片格式（標題要有超連結）：\n- **[🎬 影片標題](YouTube連結)**\n- 簡介（100-200字）",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772532100278,
+        "lastStatus": "error",
+        "lastDurationMs": 125589,
+        "consecutiveErrors": 5,
+        "lastError": "cron delivery target is missing"
+      }
+    },
+    {
+      "id": "f7353dbd-c515-4e08-846e-b0e2f8a1ae79",
+      "agentId": "main",
+      "sessionKey": "agent:main:discord:channel:1476854371873587353",
+      "name": "提醒-授權macOS+建立Anytype範本",
+      "enabled": true,
+      "createdAtMs": 1772499001022,
+      "updatedAtMs": 1774346439693,
+      "schedule": {
+        "expr": "0 18 * * *",
+        "kind": "cron",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "提醒 Peter 兩件事：\n\n1. **macOS 自動化權限**：需要授權 Screen Recording 和 Accessibility 權限，這樣我才能幫他操作 Anytype。路徑：系統偏好設定 → 隱私權與安全性 → 螢幕錄製/輔助使用\n\n2. **建立課程筆記範本**：他之前問過的課程筆記範本（科目別、科目、章節、每章重點、每章練習、每章典範題、小提示、進度）。如果權限已授權，我可以幫他在 Anytype 裡建立。",
+        "model": "minimax-portal/MiniMax-M2.5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "1476854371873587353"
+      },
+      "state": {
+        "nextRunAtMs": 1774432800000,
+        "lastRunAtMs": 1774346400008,
+        "lastStatus": "error",
+        "lastDurationMs": 39685,
+        "consecutiveErrors": 20,
+        "lastError": "cron announce delivery failed"
+      }
+    }
+  ]
+}
