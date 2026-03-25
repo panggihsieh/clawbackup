@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .calculator {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 320px;
+            padding: 20px;
+        }
+        #display {
+            width: 100%;
+            height: 60px;
+            border: none;
+            background: #1a1a2e;
+            color: white;
+            font-size: 32px;
+            text-align: right;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            height: 60px;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .number {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .number:hover {
+            background: #e0e0e0;
+        }
+        .operator {
+            background: #ff9500;
+            color: white;
+        }
+        .operator:hover {
+            background: #e08900;
+        }
+        .equals {
+            background: #34c759;
+            color: white;
+            grid-column: span 2;
+        }
+        .equals:hover {
+            background: #2db150;
+        }
+        .clear {
+            background: #ff3b30;
+            color: white;
+        }
+        .clear:hover {
+            background: #e0352c;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="operator" onclick="append('/')">÷</button>
+            <button class="operator" onclick="append('*')">×</button>
+            <button class="operator" onclick="append('-')">−</button>
+            
+            <button class="number" onclick="append('7')">7</button>
+            <button class="number" onclick="append('8')">8</button>
+            <button class="number" onclick="append('9')">9</button>
+            <button class="operator" onclick="append('+')">+</button>
+            
+            <button class="number" onclick="append('4')">4</button>
+            <button class="number" onclick="append('5')">5</button>
+            <button class="number" onclick="append('6')">6</button>
+            <button class="number" onclick="append('.')">.</button>
+            
+            <button class="number" onclick="append('1')">1</button>
+            <button class="number" onclick="append('2')">2</button>
+            <button class="number" onclick="append('3')">3</button>
+            <button class="equals" onclick="calculate()">=</button>
+            
+            <button class="number" onclick="append('0')" style="grid-column: span 2;">0</button>
+            <button class="number" onclick="append('(')">(</button>
+            <button class="number" onclick="append(')')">)</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function append(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        async function calculate() {
+            const expression = display.value;
+            if (!expression) return;
+
+            try {
+                const response = await fetch('/calculate', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({expression})
+                });
+                const data = await response.json();
+                
+                if (data.error) {
+                    display.value = data.error;
+                } else {
+                    display.value = data.result;
+                }
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
