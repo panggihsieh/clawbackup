@@ -401,8 +401,8 @@
     }
   },
   "agent:main:discord:channel:1473943769316331658": {
-    "sessionId": "afe21a63-2b11-4902-9606-27824a4dbf76",
-    "updatedAt": 1774525566010,
+    "sessionId": "7b68c816-7f9e-4a23-919d-4e9b746c5988",
+    "updatedAt": 1774698364561,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -416,7 +416,7 @@
       "from": "channel:1473943769316331658",
       "to": "channel:1473943769316331658"
     },
-    "sessionFile": "/Users/hsieh/.openclaw/agents/main/sessions/afe21a63-2b11-4902-9606-27824a4dbf76.jsonl",
+    "sessionFile": "/Users/hsieh/.openclaw/agents/main/sessions/7b68c816-7f9e-4a23-919d-4e9b746c5988.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), or any work in ~/clawd workspace (never spawn agents here). Requires a bash tool that supports pty:true.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>gh-issues</name>\n    <description>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/gh-issues/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>github</name>\n    <description>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/github/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>session-logs</name>\n    <description>Search and analyze your own session logs (older/parent conversations) using jq.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/session-logs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>pdf</name>\n    <description>Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n</description>\n    <location>~/.openclaw/skills/pdf/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -595,17 +595,17 @@
     "authProfileOverride": "minimax-portal:default",
     "authProfileOverrideSource": "auto",
     "authProfileOverrideCompactionCount": 0,
-    "inputTokens": 16051,
-    "outputTokens": 93,
-    "totalTokens": 16314,
+    "inputTokens": 16474,
+    "outputTokens": 109,
+    "totalTokens": 16738,
     "totalTokensFresh": true,
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774525559675,
-      "sessionId": "afe21a63-2b11-4902-9606-27824a4dbf76",
+      "generatedAt": 1774698359723,
+      "sessionId": "7b68c816-7f9e-4a23-919d-4e9b746c5988",
       "sessionKey": "agent:main:discord:channel:1473943769316331658",
       "provider": "minimax-portal",
       "model": "MiniMax-M2.5",
@@ -900,7 +900,7 @@
   },
   "agent:main:discord:channel:1473975908447813715": {
     "sessionId": "9ef1fcb2-9dc4-4023-b5f3-31c0386bdfc4",
-    "updatedAt": 1774541058534,
+    "updatedAt": 1774713887784,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -1467,8 +1467,8 @@
     }
   },
   "agent:main:cron:bee1b76c-458f-4d48-95cd-4819e40a2dad": {
-    "sessionId": "c2f25dbc-9202-488d-aa92-f26e743e2151",
-    "updatedAt": 1774497600018,
+    "sessionId": "1d98e6e1-e965-42f7-bc1a-6b6739dc9c90",
+    "updatedAt": 1774670400018,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -1598,14 +1598,14 @@
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "abortedLastRun": false,
-    "inputTokens": 84094,
-    "outputTokens": 1158,
-    "totalTokens": 84179,
+    "inputTokens": 29282,
+    "outputTokens": 675,
+    "totalTokens": 29489,
     "totalTokensFresh": true
   },
   "agent:main:cron:fcc1e289-69f1-48a8-84d4-24e39a45e42d": {
-    "sessionId": "b2c6c436-fd5b-4ced-9b6d-8261abbdcfef",
-    "updatedAt": 1774540800037,
+    "sessionId": "02c3443c-fdf1-431e-8f36-776abf154b1c",
+    "updatedAt": 1774713600047,
     "systemSent": true,
     "label": "Cron: OpenClaw 每日備份",
     "skillsSnapshot": {
@@ -1740,9 +1740,9 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 61291,
-    "outputTokens": 280,
-    "totalTokens": 61587,
+    "inputTokens": 12691,
+    "outputTokens": 432,
+    "totalTokens": 13004,
     "totalTokensFresh": true
   },
   "agent:main:discord:channel:1474015139765158092": {
@@ -2674,7 +2674,7 @@
   },
   "agent:main:discord:channel:1474045619432587264": {
     "sessionId": "676fe73a-e1aa-4780-ba24-799ac7a00885",
-    "updatedAt": 1774497856630,
+    "updatedAt": 1774670613227,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>gh-issues</name>\n    <description>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/gh-issues/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>github</name>\n    <description>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/github/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>pdf</name>\n    <description>Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n</description>\n    <location>~/.openclaw/skills/pdf/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -2844,9 +2844,9 @@
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "abortedLastRun": false,
-    "inputTokens": 325,
-    "outputTokens": 99,
-    "totalTokens": 105349,
+    "inputTokens": 173711,
+    "outputTokens": 33,
+    "totalTokens": 174031,
     "totalTokensFresh": true,
     "chatType": "direct",
     "origin": {
@@ -2861,7 +2861,7 @@
     "authProfileOverrideCompactionCount": 0,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774497824684,
+      "generatedAt": 1774670596133,
       "sessionId": "676fe73a-e1aa-4780-ba24-799ac7a00885",
       "sessionKey": "agent:main:discord:channel:1474045619432587264",
       "provider": "minimax-portal",
@@ -3147,7 +3147,7 @@
       }
     },
     "lastHeartbeatText": "這是系統延遲通知，已經發過了 📱\n\n明天6點見 👋",
-    "lastHeartbeatSentAt": 1774497824488
+    "lastHeartbeatSentAt": 1774670595920
   },
   "agent:main:discord:channel:1123133775873622156": {
     "chatType": "channel",
@@ -3171,7 +3171,7 @@
   },
   "agent:main:discord:channel:1474220939267805256": {
     "sessionId": "cc781f34-84b3-45d6-9460-417a4b352282",
-    "updatedAt": 1774497883940,
+    "updatedAt": 1774670664204,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>gh-issues</name>\n    <description>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/gh-issues/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>github</name>\n    <description>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/github/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>pdf</name>\n    <description>Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n</description>\n    <location>~/.openclaw/skills/pdf/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -3341,9 +3341,9 @@
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "abortedLastRun": false,
-    "inputTokens": 159436,
-    "outputTokens": 539,
-    "totalTokens": 159827,
+    "inputTokens": 162234,
+    "outputTokens": 420,
+    "totalTokens": 163001,
     "totalTokensFresh": true
   },
   "agent:main:cron:b29d8911-7d0b-4fb7-8e9f-d8273fecc0f1": {
@@ -3697,8 +3697,8 @@
     "lastChannel": "discord"
   },
   "agent:main:cron:8c4a1875-edb8-4813-a423-efee8483191e": {
-    "sessionId": "7f35ee44-0517-4b08-84f9-59af205c7137",
-    "updatedAt": 1774497766420,
+    "sessionId": "a216f213-c20b-4259-95f4-f2a877b9c7dd",
+    "updatedAt": 1774670561658,
     "systemSent": true,
     "label": "Cron: Google Antigravity MCP news",
     "skillsSnapshot": {
@@ -3856,31 +3856,28 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 22963,
-    "outputTokens": 900,
-    "totalTokens": 23743,
+    "inputTokens": 27518,
+    "outputTokens": 727,
+    "totalTokens": 27822,
     "totalTokensFresh": true
   },
   "agent:main:discord:channel:1475078700524376206": {
-    "sessionId": "04f13b27-d174-4fe4-ac8d-f0383569dc95",
-    "updatedAt": 1774497901438,
+    "sessionId": "50fc8d7e-d395-401c-ac46-bc61a8d67b7f",
+    "updatedAt": 1774670676574,
     "systemSent": true,
     "abortedLastRun": false,
-    "chatType": "channel",
+    "chatType": "direct",
     "deliveryContext": {
-      "channel": "discord",
       "to": "channel:1475078700524376206"
     },
     "lastTo": "channel:1475078700524376206",
     "origin": {
-      "label": "discord:channel:1475078700524376206",
-      "provider": "discord",
-      "from": "discord:channel:1475078700524376206",
-      "to": "channel:1475078700524376206",
-      "surface": "discord",
-      "chatType": "channel"
+      "label": "channel:1475078700524376206",
+      "provider": "cron-event",
+      "from": "channel:1475078700524376206",
+      "to": "channel:1475078700524376206"
     },
-    "sessionFile": "/Users/hsieh/.openclaw/agents/main/sessions/04f13b27-d174-4fe4-ac8d-f0383569dc95.jsonl",
+    "sessionFile": "/Users/hsieh/.openclaw/agents/main/sessions/50fc8d7e-d395-401c-ac46-bc61a8d67b7f.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), or any work in ~/clawd workspace (never spawn agents here). Requires a bash tool that supports pty:true.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>gh-issues</name>\n    <description>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/gh-issues/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>github</name>\n    <description>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/github/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>session-logs</name>\n    <description>Search and analyze your own session logs (older/parent conversations) using jq.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/session-logs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>pdf</name>\n    <description>Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n</description>\n    <location>~/.openclaw/skills/pdf/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -4059,21 +4056,17 @@
     "authProfileOverride": "minimax-portal:default",
     "authProfileOverrideSource": "auto",
     "authProfileOverrideCompactionCount": 0,
-    "channel": "discord",
-    "groupId": "1475078700524376206",
-    "displayName": "discord:g-1475078700524376206",
-    "lastChannel": "discord",
-    "inputTokens": 6499,
-    "outputTokens": 204,
-    "totalTokens": 93241,
+    "inputTokens": 17267,
+    "outputTokens": 363,
+    "totalTokens": 17587,
     "totalTokensFresh": true,
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774497885119,
-      "sessionId": "04f13b27-d174-4fe4-ac8d-f0383569dc95",
+      "generatedAt": 1774670664827,
+      "sessionId": "50fc8d7e-d395-401c-ac46-bc61a8d67b7f",
       "sessionKey": "agent:main:discord:channel:1475078700524376206",
       "provider": "minimax-portal",
       "model": "MiniMax-M2.5",
@@ -4364,13 +4357,11 @@
           }
         ]
       }
-    },
-    "lastHeartbeatText": "⚠️ ✉️ Message failed: Unknown target \"Peter\" for Discord. Hint: <channelId|user:ID|channel:ID>",
-    "lastHeartbeatSentAt": 1774476380951
+    }
   },
   "agent:main:cron:bee27c99-63ce-4412-b2ac-5019ea4fc658": {
-    "sessionId": "4008d873-138e-4cac-b2d7-1ac8abf6cc58",
-    "updatedAt": 1774497819228,
+    "sessionId": "306b5a1a-2b6b-4030-8094-984f778575eb",
+    "updatedAt": 1774670593667,
     "systemSent": true,
     "label": "Cron: AI 每日科技新聞",
     "skillsSnapshot": {
@@ -4528,9 +4519,9 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 37506,
-    "outputTokens": 665,
-    "totalTokens": 37699,
+    "inputTokens": 109529,
+    "outputTokens": 1612,
+    "totalTokens": 55035,
     "totalTokensFresh": true
   },
   "agent:main:cron:065c2b0a-7ba1-4d03-aae4-76226a425d15": {
@@ -5113,7 +5104,7 @@
   },
   "agent:main:discord:channel:1476854371873587353": {
     "sessionId": "ee01633f-0bf1-41b5-a029-83ea26a55d94",
-    "updatedAt": 1774498013908,
+    "updatedAt": 1774670752625,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>gh-issues</name>\n    <description>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/gh-issues/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>github</name>\n    <description>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/github/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>pdf</name>\n    <description>Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n</description>\n    <location>~/.openclaw/skills/pdf/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -5283,9 +5274,9 @@
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "abortedLastRun": false,
-    "inputTokens": 109172,
-    "outputTokens": 69,
-    "totalTokens": 147572,
+    "inputTokens": 115432,
+    "outputTokens": 35,
+    "totalTokens": 154088,
     "totalTokensFresh": true
   },
   "agent:main:cron:d833cf56-7178-4272-91ef-7e600845d8eb": {
@@ -5454,8 +5445,8 @@
     "totalTokensFresh": true
   },
   "agent:main:cron:ca6bc835-0852-4ab2-80e3-44fbcb24e922": {
-    "sessionId": "667e72aa-b111-4834-9851-8ed349e233b8",
-    "updatedAt": 1774497866625,
+    "sessionId": "f718b9c1-99ba-4f91-84b9-0480fe6e8215",
+    "updatedAt": 1774670654309,
     "systemSent": true,
     "label": "Cron: anytype-daily-tips",
     "skillsSnapshot": {
@@ -5613,9 +5604,9 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 88250,
-    "outputTokens": 1122,
-    "totalTokens": 88356,
+    "inputTokens": 150953,
+    "outputTokens": 1095,
+    "totalTokens": 77897,
     "totalTokensFresh": true
   },
   "agent:main:cron:00d75b83-7129-475b-bd41-77af98100454": {
@@ -5784,8 +5775,8 @@
     "totalTokensFresh": true
   },
   "agent:main:cron:2a156e1f-abc1-424c-8afb-1e6ada056700": {
-    "sessionId": "e65cb386-c565-495e-9b05-9c34e372d3c2",
-    "updatedAt": 1774497927610,
+    "sessionId": "5f368e11-3e34-4c0c-b057-309adb2fe0ac",
+    "updatedAt": 1774670703289,
     "systemSent": true,
     "label": "Cron: anytype-noon-12pm",
     "skillsSnapshot": {
@@ -5943,9 +5934,9 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 77689,
-    "outputTokens": 1178,
-    "totalTokens": 52410,
+    "inputTokens": 85956,
+    "outputTokens": 1635,
+    "totalTokens": 51619,
     "totalTokensFresh": true
   },
   "agent:main:discord:channel:1259767331909832794": {
@@ -6841,151 +6832,9 @@
     },
     "lastChannel": "discord"
   },
-  "agent:main:cron:fcc1e289-69f1-48a8-84d4-24e39a45e42d:run:09466a1b-1811-42d5-8fba-92281664b074": {
-    "sessionId": "09466a1b-1811-42d5-8fba-92281664b074",
-    "updatedAt": 1774454400048,
-    "systemSent": true,
-    "label": "Cron: OpenClaw 每日備份",
-    "skillsSnapshot": {
-      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>pdf</name>\n    <description>Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n</description>\n    <location>~/.openclaw/skills/pdf/SKILL.md</location>\n  </skill>\n</available_skills>",
-      "skills": [
-        {
-          "name": "apple-notes"
-        },
-        {
-          "name": "apple-reminders"
-        },
-        {
-          "name": "discord"
-        },
-        {
-          "name": "healthcheck"
-        },
-        {
-          "name": "mcporter"
-        },
-        {
-          "name": "nano-pdf"
-        },
-        {
-          "name": "peekaboo"
-        },
-        {
-          "name": "skill-creator"
-        },
-        {
-          "name": "weather"
-        },
-        {
-          "name": "openclaw-docs"
-        },
-        {
-          "name": "pdf"
-        }
-      ],
-      "resolvedSkills": [
-        {
-          "name": "apple-notes",
-          "description": "Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/apple-notes",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "apple-reminders",
-          "description": "Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/apple-reminders",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "discord",
-          "description": "Discord ops via the message tool (channel=discord).",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/discord",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "healthcheck",
-          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/healthcheck",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "mcporter",
-          "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/mcporter",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "nano-pdf",
-          "description": "Edit PDFs with natural-language instructions using the nano-pdf CLI.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/nano-pdf",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "peekaboo",
-          "description": "Capture and automate macOS UI with the Peekaboo CLI.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/peekaboo",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "skill-creator",
-          "description": "Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/skill-creator",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "weather",
-          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
-          "filePath": "/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md",
-          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/weather",
-          "source": "openclaw-bundled",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "openclaw-docs",
-          "description": "OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n",
-          "filePath": "/Users/hsieh/.openclaw/skills/openclaw-docs/SKILL.md",
-          "baseDir": "/Users/hsieh/.openclaw/skills/openclaw-docs",
-          "source": "openclaw-managed",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "pdf",
-          "description": "Use this skill whenever the user wants to do anything with PDF files.\nThis includes reading or extracting text/tables from PDFs, combining or merging\nmultiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks,\ncreating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images,\nand OCR on scanned PDFs to make them searchable.\nIf the user mentions a .pdf file or asks to produce one, use this skill.\n",
-          "filePath": "/Users/hsieh/.openclaw/skills/pdf/SKILL.md",
-          "baseDir": "/Users/hsieh/.openclaw/skills/pdf",
-          "source": "openclaw-managed",
-          "disableModelInvocation": false
-        }
-      ],
-      "version": 0
-    },
-    "modelProvider": "minimax-portal",
-    "model": "MiniMax-M2.5",
-    "contextTokens": 200000,
-    "inputTokens": 73370,
-    "outputTokens": 394,
-    "totalTokens": 61669,
-    "totalTokensFresh": true
-  },
-  "agent:main:cron:bee1b76c-458f-4d48-95cd-4819e40a2dad:run:c2f25dbc-9202-488d-aa92-f26e743e2151": {
-    "sessionId": "c2f25dbc-9202-488d-aa92-f26e743e2151",
-    "updatedAt": 1774497600018,
+  "agent:main:cron:bee1b76c-458f-4d48-95cd-4819e40a2dad:run:1d98e6e1-e965-42f7-bc1a-6b6739dc9c90": {
+    "sessionId": "1d98e6e1-e965-42f7-bc1a-6b6739dc9c90",
+    "updatedAt": 1774670400018,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>apple-notes</name>\n    <description>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-notes/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>apple-reminders</name>\n    <description>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>discord</name>\n    <description>Discord ops via the message tool (channel=discord).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/discord/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>nano-pdf</name>\n    <description>Edit PDFs with natural-language instructions using the nano-pdf CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>peekaboo</name>\n    <description>Capture and automate macOS UI with the Peekaboo CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/peekaboo/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-docs</name>\n    <description>OpenClaw self-hosted gateway documentation and configuration reference. Use when:\n(1) Configuring OpenClaw channels (Discord, WhatsApp, Telegram, Slack, etc.)\n(2) Setting up memory search (especially QMD backend)\n(3) Using tools (browser, exec, message, cron, etc.)\n(4) Gateway configuration and troubleshooting\n(5) Agent workspace and memory management\n</description>\n    <location>~/.openclaw/skills/openclaw-docs/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -7115,14 +6964,14 @@
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
     "abortedLastRun": false,
-    "inputTokens": 84094,
-    "outputTokens": 1158,
-    "totalTokens": 84179,
+    "inputTokens": 29282,
+    "outputTokens": 675,
+    "totalTokens": 29489,
     "totalTokensFresh": true
   },
-  "agent:main:cron:8c4a1875-edb8-4813-a423-efee8483191e:run:7f35ee44-0517-4b08-84f9-59af205c7137": {
-    "sessionId": "7f35ee44-0517-4b08-84f9-59af205c7137",
-    "updatedAt": 1774497766420,
+  "agent:main:cron:8c4a1875-edb8-4813-a423-efee8483191e:run:a216f213-c20b-4259-95f4-f2a877b9c7dd": {
+    "sessionId": "a216f213-c20b-4259-95f4-f2a877b9c7dd",
+    "updatedAt": 1774670561658,
     "systemSent": true,
     "label": "Cron: Google Antigravity MCP news",
     "skillsSnapshot": {
@@ -7280,14 +7129,14 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 22963,
-    "outputTokens": 900,
-    "totalTokens": 23743,
+    "inputTokens": 27518,
+    "outputTokens": 727,
+    "totalTokens": 27822,
     "totalTokensFresh": true
   },
-  "agent:main:cron:bee27c99-63ce-4412-b2ac-5019ea4fc658:run:4008d873-138e-4cac-b2d7-1ac8abf6cc58": {
-    "sessionId": "4008d873-138e-4cac-b2d7-1ac8abf6cc58",
-    "updatedAt": 1774497819228,
+  "agent:main:cron:bee27c99-63ce-4412-b2ac-5019ea4fc658:run:306b5a1a-2b6b-4030-8094-984f778575eb": {
+    "sessionId": "306b5a1a-2b6b-4030-8094-984f778575eb",
+    "updatedAt": 1774670593667,
     "systemSent": true,
     "label": "Cron: AI 每日科技新聞",
     "skillsSnapshot": {
@@ -7445,14 +7294,14 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 37506,
-    "outputTokens": 665,
-    "totalTokens": 37699,
+    "inputTokens": 109529,
+    "outputTokens": 1612,
+    "totalTokens": 55035,
     "totalTokensFresh": true
   },
-  "agent:main:cron:ca6bc835-0852-4ab2-80e3-44fbcb24e922:run:667e72aa-b111-4834-9851-8ed349e233b8": {
-    "sessionId": "667e72aa-b111-4834-9851-8ed349e233b8",
-    "updatedAt": 1774497866625,
+  "agent:main:cron:ca6bc835-0852-4ab2-80e3-44fbcb24e922:run:f718b9c1-99ba-4f91-84b9-0480fe6e8215": {
+    "sessionId": "f718b9c1-99ba-4f91-84b9-0480fe6e8215",
+    "updatedAt": 1774670654309,
     "systemSent": true,
     "label": "Cron: anytype-daily-tips",
     "skillsSnapshot": {
@@ -7610,14 +7459,14 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 88250,
-    "outputTokens": 1122,
-    "totalTokens": 88356,
+    "inputTokens": 150953,
+    "outputTokens": 1095,
+    "totalTokens": 77897,
     "totalTokensFresh": true
   },
-  "agent:main:cron:2a156e1f-abc1-424c-8afb-1e6ada056700:run:e65cb386-c565-495e-9b05-9c34e372d3c2": {
-    "sessionId": "e65cb386-c565-495e-9b05-9c34e372d3c2",
-    "updatedAt": 1774497927610,
+  "agent:main:cron:2a156e1f-abc1-424c-8afb-1e6ada056700:run:5f368e11-3e34-4c0c-b057-309adb2fe0ac": {
+    "sessionId": "5f368e11-3e34-4c0c-b057-309adb2fe0ac",
+    "updatedAt": 1774670703289,
     "systemSent": true,
     "label": "Cron: anytype-noon-12pm",
     "skillsSnapshot": {
@@ -7775,14 +7624,14 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 77689,
-    "outputTokens": 1178,
-    "totalTokens": 52410,
+    "inputTokens": 85956,
+    "outputTokens": 1635,
+    "totalTokens": 51619,
     "totalTokensFresh": true
   },
-  "agent:main:cron:fcc1e289-69f1-48a8-84d4-24e39a45e42d:run:b2c6c436-fd5b-4ced-9b6d-8261abbdcfef": {
-    "sessionId": "b2c6c436-fd5b-4ced-9b6d-8261abbdcfef",
-    "updatedAt": 1774540800037,
+  "agent:main:cron:fcc1e289-69f1-48a8-84d4-24e39a45e42d:run:02c3443c-fdf1-431e-8f36-776abf154b1c": {
+    "sessionId": "02c3443c-fdf1-431e-8f36-776abf154b1c",
+    "updatedAt": 1774713600047,
     "systemSent": true,
     "label": "Cron: OpenClaw 每日備份",
     "skillsSnapshot": {
@@ -7917,9 +7766,9 @@
     "modelProvider": "minimax-portal",
     "model": "MiniMax-M2.5",
     "contextTokens": 200000,
-    "inputTokens": 61291,
-    "outputTokens": 280,
-    "totalTokens": 61587,
+    "inputTokens": 12691,
+    "outputTokens": 432,
+    "totalTokens": 13004,
     "totalTokensFresh": true
   }
 }
