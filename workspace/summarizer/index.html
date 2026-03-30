@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教材摘要工具</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Outfit:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Teaching Material Summarizer</span>
+          <h1>教材摘要工具</h1>
+          <p>
+            贴上教材内容或上传 PDF，快速整理重点、课堂导读与语音摘要，适合教师备课与课后复盘。
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="metric">
+            <strong>输入</strong>
+            <span>文本 / PDF</span>
+          </div>
+          <div class="metric">
+            <strong>输出</strong>
+            <span>重点摘要 / 语音朗读</span>
+          </div>
+          <div class="metric">
+            <strong>模式</strong>
+            <span>浏览器原生 AI + 智能兜底</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-grid">
+        <section class="panel input-panel">
+          <div class="panel-head">
+            <h2>教材输入</h2>
+            <p>支持直接贴上内容，或上传 PDF 自动提取文字。</p>
+          </div>
+
+          <label class="field-label" for="materialText">教材内容</label>
+          <textarea
+            id="materialText"
+            placeholder="请贴上课程讲义、课文、研究资料或教学说明..."
+          ></textarea>
+
+          <div class="upload-row">
+            <label class="upload-box" for="pdfInput">
+              <input id="pdfInput" type="file" accept="application/pdf" />
+              <span class="upload-title">上传 PDF</span>
+              <span class="upload-subtitle">自动读取页面文字内容</span>
+            </label>
+            <div class="file-meta">
+              <span id="fileName">尚未选择文件</span>
+              <span id="pdfStatus">等待上传</span>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button id="summarizeBtn" class="primary-btn">生成重点摘要</button>
+            <button id="clearBtn" class="ghost-btn">清空内容</button>
+          </div>
+        </section>
+
+        <section class="panel output-panel">
+          <div class="panel-head">
+            <h2>摘要结果</h2>
+            <p>可直接用于课堂导入、复习提要或口头说明。</p>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-toolbar">
+              <span class="badge">智能摘要</span>
+              <span id="summaryStatus">尚未生成摘要</span>
+            </div>
+            <div id="summaryOutput" class="summary-output">
+              系统会在这里显示教材重点整理结果。
+            </div>
+          </div>
+
+          <div class="audio-card">
+            <div class="panel-head compact">
+              <h3>语音摘要</h3>
+              <p>使用 Web Speech API 朗读摘要内容。</p>
+            </div>
+            <div class="audio-actions">
+              <button id="speakBtn" class="secondary-btn">播放语音摘要</button>
+              <button id="stopBtn" class="ghost-btn">停止播放</button>
+            </div>
+            <p class="audio-note">
+              浏览器的 Web Speech API 提供语音播放能力，但通常无法直接导出真正的 MP3 文件。
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

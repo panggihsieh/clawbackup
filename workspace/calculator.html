@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Calculator</title>
+  <style>
+    :root {
+      --bg-top: #fff7e8;
+      --bg-bottom: #f2d2c4;
+      --panel: rgba(255, 250, 244, 0.82);
+      --panel-border: rgba(113, 71, 58, 0.12);
+      --display: #2f1d1a;
+      --text-soft: #7e5d57;
+      --accent: #e97451;
+      --accent-strong: #c84f31;
+      --memory: #3f7d6a;
+      --btn-main: rgba(255, 255, 255, 0.72);
+      --btn-operator: linear-gradient(135deg, #f6b26b, #e97451);
+      --btn-memory: linear-gradient(135deg, #87b29b, #4f7d67);
+      --shadow: 0 24px 60px rgba(117, 67, 53, 0.22);
+      --font-display: "Avenir Next", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: var(--font-display);
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255, 214, 170, 0.65), transparent 28%),
+        linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+      color: var(--display);
+    }
+
+    .calculator-shell {
+      position: relative;
+      width: min(100%, 380px);
+      padding: 28px;
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .calculator-shell::before,
+    .calculator-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(2px);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .calculator-shell::before {
+      width: 180px;
+      height: 180px;
+      top: -80px;
+      right: -70px;
+      background: rgba(255, 196, 142, 0.42);
+    }
+
+    .calculator-shell::after {
+      width: 140px;
+      height: 140px;
+      left: -55px;
+      bottom: -50px;
+      background: rgba(200, 79, 49, 0.14);
+    }
+
+    .header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      z-index: 1;
+    }
+
+    .title {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .memory-pill {
+      min-width: 58px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(63, 125, 106, 0.12);
+      color: rgba(40, 84, 71, 0.55);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+      transition: 160ms ease;
+    }
+
+    .memory-pill.active {
+      background: rgba(63, 125, 106, 0.18);
+      color: var(--memory);
+      box-shadow: inset 0 0 0 1px rgba(63, 125, 106, 0.12);
+    }
+
+    .display-wrap {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 18px;
+      padding: 18px 18px 14px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: inset 0 0 0 1px rgba(113, 71, 58, 0.08);
+    }
+
+    .expression {
+      min-height: 22px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      text-align: right;
+      word-break: break-all;
+    }
+
+    .display {
+      margin-top: 8px;
+      font-size: clamp(2.1rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-align: right;
+      color: var(--display);
+      word-break: break-all;
+    }
+
+    .button-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 18px;
+      min-height: 62px;
+      font: inherit;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--display);
+      background: var(--btn-main);
+      box-shadow:
+        inset 0 -1px 0 rgba(255, 255, 255, 0.55),
+        0 10px 18px rgba(111, 75, 66, 0.12);
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        inset 0 -1px 0 rgba(255, 255, 255, 0.55),
+        0 14px 24px rgba(111, 75, 66, 0.15);
+      filter: saturate(1.03);
+    }
+
+    button:active {
+      transform: translateY(1px) scale(0.99);
+    }
+
+    .memory-btn {
+      background: var(--btn-memory);
+      color: #fff;
+    }
+
+    .operator-btn,
+    .equals-btn {
+      background: var(--btn-operator);
+      color: #fff;
+    }
+
+    .wide {
+      grid-column: span 2;
+    }
+
+    .clear-btn {
+      background: rgba(255, 238, 229, 0.9);
+      color: var(--accent-strong);
+    }
+
+    @media (max-width: 420px) {
+      .calculator-shell {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      button {
+        min-height: 58px;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="calculator-shell">
+    <div class="header">
+      <div class="title">Memory Calculator</div>
+      <div id="memoryIndicator" class="memory-pill">MEM</div>
+    </div>
+
+    <section class="display-wrap" aria-label="Calculator display">
+      <div id="expression" class="expression"></div>
+      <div id="display" class="display">0</div>
+    </section>
+
+    <section class="button-grid">
+      <button class="memory-btn" data-action="m-plus">M+</button>
+      <button class="memory-btn" data-action="m-minus">M-</button>
+      <button class="memory-btn" data-action="mr">MR</button>
+      <button class="memory-btn" data-action="mrc">MRC</button>
+
+      <button class="clear-btn wide" data-action="clear">Clear</button>
+      <button class="operator-btn" data-action="operator" data-value="÷">÷</button>
+      <button class="operator-btn" data-action="operator" data-value="×">×</button>
+
+      <button data-action="digit" data-value="7">7</button>
+      <button data-action="digit" data-value="8">8</button>
+      <button data-action="digit" data-value="9">9</button>
+      <button class="operator-btn" data-action="operator" data-value="-">−</button>
+
+      <button data-action="digit" data-value="4">4</button>
+      <button data-action="digit" data-value="5">5</button>
+      <button data-action="digit" data-value="6">6</button>
+      <button class="operator-btn" data-action="operator" data-value="+">+</button>
+
+      <button data-action="digit" data-value="1">1</button>
+      <button data-action="digit" data-value="2">2</button>
+      <button data-action="digit" data-value="3">3</button>
+      <button class="equals-btn" data-action="equals">=</button>
+
+      <button class="wide" data-action="digit" data-value="0">0</button>
+      <button data-action="decimal">.</button>
+      <button data-action="backspace">⌫</button>
+    </section>
+  </main>
+
+  <script>
+    const displayEl = document.getElementById("display");
+    const expressionEl = document.getElementById("expression");
+    const memoryIndicatorEl = document.getElementById("memoryIndicator");
+    const buttonGrid = document.querySelector(".button-grid");
+
+    const state = {
+      displayValue: "0",
+      firstOperand: null,
+      operator: null,
+      waitingForSecondOperand: false,
+      memoryValue: 0
+    };
+
+    const formatNumber = (value) => {
+      if (!Number.isFinite(value)) {
+        return "Error";
+      }
+
+      const rounded = Math.abs(value) < 1e12 ? Number(value.toFixed(10)) : value;
+      return String(rounded);
+    };
+
+    const updateScreen = () => {
+      displayEl.textContent = state.displayValue;
+      expressionEl.textContent =
+        state.firstOperand !== null && state.operator
+          ? `${formatNumber(state.firstOperand)} ${state.operator}`
+          : "";
+      memoryIndicatorEl.classList.toggle("active", state.memoryValue !== 0);
+      memoryIndicatorEl.textContent =
+        state.memoryValue !== 0 ? `MEM ${formatNumber(state.memoryValue)}` : "MEM";
+    };
+
+    const inputDigit = (digit) => {
+      if (state.waitingForSecondOperand) {
+        state.displayValue = digit;
+        state.waitingForSecondOperand = false;
+        return;
+      }
+
+      state.displayValue =
+        state.displayValue === "0" ? digit : state.displayValue + digit;
+    };
+
+    const inputDecimal = () => {
+      if (state.waitingForSecondOperand) {
+        state.displayValue = "0.";
+        state.waitingForSecondOperand = false;
+        return;
+      }
+
+      if (!state.displayValue.includes(".")) {
+        state.displayValue += ".";
+      }
+    };
+
+    const calculate = (first, second, operator) => {
+      switch (operator) {
+        case "+":
+          return first + second;
+        case "-":
+          return first - second;
+        case "×":
+          return first * second;
+        case "÷":
+          return second === 0 ? NaN : first / second;
+        default:
+          return second;
+      }
+    };
+
+    const handleOperator = (nextOperator) => {
+      const inputValue = Number(state.displayValue);
+
+      if (state.operator && !state.waitingForSecondOperand) {
+        const result = calculate(state.firstOperand, inputValue, state.operator);
+        state.displayValue = formatNumber(result);
+        state.firstOperand = result;
+      } else if (state.firstOperand === null) {
+        state.firstOperand = inputValue;
+      }
+
+      state.operator = nextOperator;
+      state.waitingForSecondOperand = true;
+    };
+
+    const handleEquals = () => {
+      if (state.operator === null || state.waitingForSecondOperand) {
+        return;
+      }
+
+      const secondOperand = Number(state.displayValue);
+      const result = calculate(state.firstOperand, secondOperand, state.operator);
+      state.displayValue = formatNumber(result);
+      state.firstOperand = null;
+      state.operator = null;
+      state.waitingForSecondOperand = false;
+      expressionEl.textContent = "";
+    };
+
+    const clearCalculator = () => {
+      state.displayValue = "0";
+      state.firstOperand = null;
+      state.operator = null;
+      state.waitingForSecondOperand = false;
+    };
+
+    const backspace = () => {
+      if (state.waitingForSecondOperand) {
+        return;
+      }
+
+      state.displayValue =
+        state.displayValue.length > 1 ? state.displayValue.slice(0, -1) : "0";
+    };
+
+    const getCurrentValue = () => {
+      const parsed = Number(state.displayValue);
+      return Number.isFinite(parsed) ? parsed : 0;
+    };
+
+    const applyMemoryAction = (action) => {
+      const currentValue = getCurrentValue();
+
+      switch (action) {
+        case "m-plus":
+          state.memoryValue += currentValue;
+          break;
+        case "m-minus":
+          state.memoryValue -= currentValue;
+          break;
+        case "mr":
+          state.displayValue = formatNumber(state.memoryValue);
+          state.waitingForSecondOperand = false;
+          break;
+        case "mrc":
+          state.memoryValue = 0;
+          break;
+        default:
+          break;
+      }
+    };
+
+    buttonGrid.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) {
+        return;
+      }
+
+      const { action, value } = button.dataset;
+
+      if (action === "digit") {
+        inputDigit(value);
+      }
+
+      if (action === "decimal") {
+        inputDecimal();
+      }
+
+      if (action === "operator") {
+        handleOperator(value);
+      }
+
+      if (action === "equals") {
+        handleEquals();
+      }
+
+      if (action === "clear") {
+        clearCalculator();
+      }
+
+      if (action === "backspace") {
+        backspace();
+      }
+
+      if (action && action.startsWith("m")) {
+        applyMemoryAction(action);
+      }
+
+      updateScreen();
+    });
+
+    updateScreen();
+  </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+:root {
+  color-scheme: light;
+  --bg-top: #f6efe1;
+  --bg-bottom: #d6e8f2;
+  --card-bg: rgba(12, 23, 42, 0.84);
+  --card-border: rgba(255, 255, 255, 0.18);
+  --panel-bg: rgba(255, 255, 255, 0.08);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: rgba(248, 250, 252, 0.74);
+  --accent: #ffb84d;
+  --accent-strong: #ff8a3d;
+  --accent-soft: rgba(255, 184, 77, 0.2);
+  --success: #7be0b8;
+  --danger: #ff7d7d;
+  --shadow: 0 28px 60px rgba(15, 23, 42, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.65), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 184, 77, 0.25), transparent 24%),
+    linear-gradient(145deg, var(--bg-top), var(--bg-bottom));
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  border-radius: 999px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+body::before {
+  width: 16rem;
+  height: 16rem;
+  top: 8%;
+  right: 10%;
+  background: rgba(255, 138, 61, 0.18);
+}
+
+body::after {
+  width: 20rem;
+  height: 20rem;
+  bottom: 4%;
+  left: 6%;
+  background: rgba(123, 224, 184, 0.18);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.timer-card {
+  width: min(100%, 42rem);
+  padding: 2rem;
+  border: 1px solid var(--card-border);
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    var(--card-bg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow,
+.group-label,
+.display-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+h1 {
+  margin: 0.75rem 0 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 0.98;
+}
+
+.subtitle {
+  margin: 1rem 0 0;
+  max-width: 32rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.display-panel,
+.control-group {
+  margin-top: 1.6rem;
+  padding: 1.2rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 1.4rem;
+  background: var(--panel-bg);
+}
+
+.time-display {
+  margin-top: 0.75rem;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(3.5rem, 12vw, 6.4rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-row {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(123, 224, 184, 0.14);
+  color: var(--success);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.total-time {
+  color: var(--text-muted);
+}
+
+.button-grid,
+.action-row {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.button-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.action-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.preset-button,
+.action-button {
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  color: var(--text-main);
+}
+
+.preset-button {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(13, 24, 43, 0.54);
+}
+
+.preset-button:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  border-color: rgba(255, 184, 77, 0.45);
+}
+
+.action-button {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #1d1306;
+  font-weight: 700;
+  box-shadow: 0 16px 28px rgba(255, 138, 61, 0.22);
+}
+
+.action-button.danger {
+  background: rgba(255, 125, 125, 0.12);
+  color: #ffd3d3;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 1rem;
+  }
+
+  .timer-card {
+    padding: 1.3rem;
+    border-radius: 1.4rem;
+  }
+
+  .button-grid,
+  .action-row {
+    grid-template-columns: 1fr;
+  }
+}
