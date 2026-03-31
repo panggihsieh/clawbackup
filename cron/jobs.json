@@ -8,7 +8,7 @@
       "name": "Google Education & Classroom 每日新聞",
       "enabled": true,
       "createdAtMs": 1771498536916,
-      "updatedAtMs": 1774843487623,
+      "updatedAtMs": 1774929866992,
       "schedule": {
         "expr": "0 6,12 * * *",
         "kind": "cron",
@@ -27,11 +27,11 @@
         "to": "1473975908447813715"
       },
       "state": {
-        "lastRunAtMs": 1774843200006,
+        "lastRunAtMs": 1774929600005,
         "lastStatus": "ok",
-        "lastDurationMs": 287617,
+        "lastDurationMs": 266987,
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1774908000000
+        "nextRunAtMs": 1774994400000
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "Memory Checkpoint",
       "enabled": true,
       "createdAtMs": 1771501559476,
-      "updatedAtMs": 1774871164797,
+      "updatedAtMs": 1774957939918,
       "schedule": {
         "kind": "every",
         "everyMs": 21600000,
@@ -54,10 +54,10 @@
         "text": "執行檢查點腳本：bash ~/.openclaw/workspace/para-system/checkpoint-memory-llm.sh"
       },
       "state": {
-        "nextRunAtMs": 1774892759476,
-        "lastRunAtMs": 1774871159480,
+        "nextRunAtMs": 1774979159476,
+        "lastRunAtMs": 1774957559482,
         "lastStatus": "ok",
-        "lastDurationMs": 5317,
+        "lastDurationMs": 380436,
         "consecutiveErrors": 0
       }
     },
@@ -100,7 +100,7 @@
       "name": "OpenClaw 每日備份",
       "enabled": true,
       "createdAtMs": 1771502206389,
-      "updatedAtMs": 1774800187271,
+      "updatedAtMs": 1774973099516,
       "schedule": {
         "expr": "0 0 * * *",
         "kind": "cron",
@@ -119,12 +119,12 @@
         "to": "1473975908447813715"
       },
       "state": {
-        "nextRunAtMs": 1774886400000,
-        "lastRunAtMs": 1774800000020,
-        "lastStatus": "ok",
-        "lastDurationMs": 187251,
-        "consecutiveErrors": 0,
-        "runningAtMs": 1774886400046
+        "nextRunAtMs": 1775059200000,
+        "lastRunAtMs": 1774972800127,
+        "lastStatus": "error",
+        "lastDurationMs": 299389,
+        "consecutiveErrors": 1,
+        "lastError": "cron announce delivery failed"
       }
     },
     {
@@ -134,7 +134,7 @@
       "name": "Google Antigravity MCP news",
       "enabled": true,
       "createdAtMs": 1771728084602,
-      "updatedAtMs": 1774843608194,
+      "updatedAtMs": 1774929940493,
       "schedule": {
         "expr": "0 6,12 * * *",
         "kind": "cron",
@@ -154,12 +154,11 @@
         "to": "1474045619432587264"
       },
       "state": {
-        "nextRunAtMs": 1774908000000,
-        "lastRunAtMs": 1774843487623,
-        "lastStatus": "error",
-        "lastDurationMs": 120571,
-        "consecutiveErrors": 25,
-        "lastError": "cron announce delivery failed"
+        "nextRunAtMs": 1774994400000,
+        "lastRunAtMs": 1774929866992,
+        "lastStatus": "ok",
+        "lastDurationMs": 73501,
+        "consecutiveErrors": 0
       }
     },
     {
@@ -262,7 +261,7 @@
       "name": "AI 每日科技新聞",
       "enabled": true,
       "createdAtMs": 1771757379696,
-      "updatedAtMs": 1774843682044,
+      "updatedAtMs": 1774929981622,
       "schedule": {
         "expr": "0 6,12 * * *",
         "kind": "cron",
@@ -282,11 +281,11 @@
         "to": "1474220939267805256"
       },
       "state": {
-        "nextRunAtMs": 1774908000000,
-        "lastRunAtMs": 1774843608194,
+        "nextRunAtMs": 1774994400000,
+        "lastRunAtMs": 1774929940493,
         "lastStatus": "error",
-        "lastDurationMs": 73850,
-        "consecutiveErrors": 23,
+        "lastDurationMs": 41129,
+        "consecutiveErrors": 25,
         "lastError": "cron announce delivery failed"
       }
     },
@@ -297,7 +296,7 @@
       "name": "anytype-daily-tips",
       "enabled": true,
       "createdAtMs": 1772179993042,
-      "updatedAtMs": 1774843728928,
+      "updatedAtMs": 1774930014472,
       "schedule": {
         "expr": "0 6,12 * * *",
         "kind": "cron",
@@ -316,11 +315,11 @@
         "to": "1476854371873587353"
       },
       "state": {
-        "nextRunAtMs": 1774908000000,
-        "lastRunAtMs": 1774843682044,
+        "nextRunAtMs": 1774994400000,
+        "lastRunAtMs": 1774929981622,
         "lastStatus": "error",
-        "lastDurationMs": 46884,
-        "consecutiveErrors": 2,
+        "lastDurationMs": 32850,
+        "consecutiveErrors": 4,
         "lastError": "cron announce delivery failed"
       }
     },
@@ -363,7 +362,7 @@
       "name": "anytype-noon-12pm",
       "enabled": true,
       "createdAtMs": 1772180581325,
-      "updatedAtMs": 1774843856888,
+      "updatedAtMs": 1774930072840,
       "schedule": {
         "kind": "cron",
         "expr": "0 12 * * *",
@@ -382,10 +381,10 @@
         "to": "1476854371873587353"
       },
       "state": {
-        "nextRunAtMs": 1774929600000,
-        "lastRunAtMs": 1774843728928,
+        "nextRunAtMs": 1775016000000,
+        "lastRunAtMs": 1774930014472,
         "lastStatus": "ok",
-        "lastDurationMs": 127960,
+        "lastDurationMs": 58368,
         "consecutiveErrors": 0
       }
     },

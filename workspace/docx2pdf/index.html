@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word 轉 PDF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__badge">瀏覽器本機轉換</div>
+        <h1>Word 轉 PDF</h1>
+        <p class="hero__text">
+          上傳 `.docx` 檔案，直接在瀏覽器中解析內容並匯出 PDF，不需安裝軟體、不需上傳到伺服器。
+        </p>
+      </header>
+
+      <main class="app-grid">
+        <section class="card upload-card">
+          <div class="card__header">
+            <h2>選擇檔案</h2>
+            <p>支援 `.docx` 格式，轉換前會先顯示內容預覽。</p>
+          </div>
+
+          <label class="dropzone" for="fileInput" id="dropzone">
+            <input id="fileInput" type="file" accept=".docx" hidden />
+            <span class="dropzone__icon">DOCX</span>
+            <span class="dropzone__title">拖曳檔案到這裡，或點擊選擇</span>
+            <span class="dropzone__hint">僅限 Word `.docx` 檔案</span>
+          </label>
+
+          <div class="file-meta" id="fileMeta">
+            <span class="file-meta__label">目前尚未選擇檔案</span>
+          </div>
+
+          <div class="actions">
+            <button class="button button--primary" id="convertButton" disabled>
+              轉換成 PDF
+            </button>
+            <button class="button button--ghost" id="downloadButton" disabled>
+              下載 PDF
+            </button>
+          </div>
+
+          <div class="status" id="statusMessage">請先上傳 `.docx` 檔案。</div>
+        </section>
+
+        <section class="card preview-card">
+          <div class="card__header">
+            <h2>內容預覽</h2>
+            <p>使用 Mammoth 解析 Word 內容後顯示。</p>
+          </div>
+
+          <div class="preview" id="preview">
+            <div class="preview__placeholder">
+              上傳檔案後，這裡會顯示轉換後的文字與段落。
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div style="font-family: 'Noto Sans TC', sans-serif; padding: 20px;">
+    <h1>測試中文</h1>
+    <p>這是測試文字：大家好，這是一個測試。</p>
+    <p>繁體中文：臺北市立大學</p>
+  </div>
+  <button onclick="generatePDF()">生成 PDF</button>
+  <script>
+    async function generatePDF() {
+      const element = document.body.querySelector('div');
+      const opt = {
+        margin: 10,
+        filename: 'test.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      await html2pdf().set(opt).from(element).save();
+      console.log('PDF generated');
+    }
+  </script>
+</body>
+</html>
